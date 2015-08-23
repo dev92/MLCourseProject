@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>MLcourseproject by dev92</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">MLcourseproject</h1>
+      <h2 class="project-tagline">Repository for Course Project submission in Practical Machine learning course (Coursera).</h2>
+      <a href="https://github.com/dev92/MLCourseProject" class="btn">View on GitHub</a>
+      <a href="https://github.com/dev92/MLCourseProject/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/dev92/MLCourseProject/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="mlcourseproject" class="anchor" href="#mlcourseproject" aria-hidden="true"><span class="octicon octicon-link"></span></a>MLCourseProject</h1>
+
+<p>This Project is part of the Coursera Practical Machine Learning Course, It is about Utilizing the concepts learnt during course and use it for predicting the outcome for the given Datasets.</p>
+
+<h2>
+<a id="dataset-background" class="anchor" href="#dataset-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>DataSet Background</h2>
+
+<p>Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement – a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, goal is to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: <a href="http://groupware.les.inf.puc-rio.br/har">http://groupware.les.inf.puc-rio.br/har</a> (see the section on the Weight Lifting Exercise Dataset). </p>
+
+<h3>
+<a id="data" class="anchor" href="#data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data</h3>
+
+<p>The training data for this project are available here: 
+<a href="https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv">Training Data</a><br>
+The test data are available here:<a href="https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv">Test Data</a></p>
+
+<h2>
+<a id="the-approach" class="anchor" href="#the-approach" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Approach</h2>
+
+<p>I have a Developed a R code named (myPrediction.R), the code includes two functions namely:<br>
+1. myPrediction( ) - Takes two arguments filenames of Training data and Test Data respectively<br>
+2. predSelect( )  - Takes a Data frame as an argument and filters out the unnecessary predictors.<br>
+I have reduced the predictors from 160 to 56 by filtering out columns with large number of NA's and taking into consideration only columns of type numeric. I went with this approach mainly because RandomForest splits better with numeric data and produces better results.<br>
+I have split the Training Data using createDatapartition function in R and subsetted 70% for training and 30% for testing.</p>
+
+<h3>
+<a id="model" class="anchor" href="#model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Model</h3>
+
+<p>I have used RandomForest Algorithm to train the Data and used classe as outcomes and remaining columns as predictors. Using this model I predicted the 30% test data and obtained 99.993% accuracy. The plot below shows the error rates for each tree created by RandomForest model.<br>
+<img src="https://github.com/dev92/MLCourseProject/error_plot.png" alt="Error Plot">  </p>
+
+<p>Finally I applied this model on Test Dataset which contained 20 samples and predicted their outcomes, I submitted the files generated in Coursera.  </p>
+
+<h3>
+<a id="citation" class="anchor" href="#citation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Citation</h3>
+
+<p>Velloso, E.; Bulling, A.; Gellersen, H.; Ugulino, W.; Fuks, H. Qualitative Activity Recognition of Weight Lifting Exercises. Proceedings of 4th International Conference in Cooperation with SIGCHI (Augmented Human '13) . Stuttgart, Germany: ACM SIGCHI, 2013.<br>
+Read more: <a href="http://groupware.les.inf.puc-rio.br/har#ixzz3jfReey4y">http://groupware.les.inf.puc-rio.br/har#ixzz3jfReey4y</a> </p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/dev92/MLCourseProject">MLcourseproject</a> is maintained by <a href="https://github.com/dev92">dev92</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
